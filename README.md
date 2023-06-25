@@ -1,6 +1,22 @@
+# Signal Messenger DB to JSON
 
+Python application to export messages from Signal Messenger DB to JSON. 
 
-Config file format:
+```bash
+python .\signaldb_to_json.py --help
+Usage: signaldb_to_json.py [OPTIONS]
+
+  Read the Signal directory and output chats as json.
+
+Options:
+  --source PATH     Path to Signal source database
+  --chats TEXT      Comma-separated chat names to include
+  --ts INTEGER      UNIX timestamp
+  -l, --list-chats  List available chats and exit
+  --help            Show this message and exit
+```
+
+export_config.json format:
 
 ```json
 {
