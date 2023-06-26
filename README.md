@@ -2,6 +2,8 @@
 
 Python application to export messages from Signal Messenger DB to JSON. 
 
+Based on signal-export application https://github.com/carderne/signal-export
+
 ```bash
 python .\signaldb_to_json.py --help
 Usage: signaldb_to_json.py [OPTIONS]
