@@ -16,6 +16,13 @@ Options:
   --help            Show this message and exit
 ```
 
+Output example:
+
+```bash
+python .\signaldb_to_json.py --ts 1687790388197
+Signal database exported as output/json_data_1687790388197.json
+```
+
 export_config.json format:
 
 ```json

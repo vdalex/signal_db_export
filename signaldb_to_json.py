@@ -3,8 +3,7 @@
 import json
 import os
 import sys
-import datetime
-# from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 from typer import Exit, Option, run
@@ -35,10 +34,10 @@ def source_location() -> Path:
 
 
 def default_timestamp() -> int:
-    dt_now = datetime.datetime.now()
-    dt = datetime.datetime(dt_now.year, dt_now.month, dt_now.day)
-    print(dt)
-    return int(dt.timestamp()*1000)
+    dt_now = datetime.now()
+    # Build local datetime at 00:00 current date ant return UTC timestamp in ms
+    dt = datetime(dt_now.year, dt_now.month, dt_now.day)
+    return int((dt.astimezone(timezone.utc)).timestamp()*1000)
 
 
 def fetch_data(
@@ -96,7 +95,7 @@ def main(
         None, help="Comma-separated chat names to include"
     ),
     ts: int = Option(
-        None, help="UNIX timestamp"),
+        None, help="UNIX timestamp ms"),
     list_chats: bool = Option(
         False, "--list-chats", "-l", help="List available chats and exit"
     ),
@@ -145,6 +144,7 @@ def main(
     with open(filename, 'w', encoding='utf-8') as outfile:
         json.dump({"groups_name_id": contacts, "messsages": convos},
                   outfile, indent=4, ensure_ascii=False)
+    print("Signal database exported as {}".format(filename))
 
 
 def cli() -> None:
