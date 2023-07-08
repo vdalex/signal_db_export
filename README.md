@@ -45,6 +45,42 @@ Output file format:
 }
 ```
 
+Messge object example:
+
+```json
+"messsages": [
+    {
+        "timestamp": 1688677422493,
+        "attachments": [],
+        "id": "some_id",
+        "conversationId": "some_id",
+        "readStatus": 0,
+        "received_at": 1688493072558,
+        "received_at_ms": 1688677422991,
+        "seenStatus": 2,
+        "sent_at": 1688677422493,
+        "serverGuid": "some_id",
+        "serverTimestamp": 1688677422896,
+        "sourceDevice": 3,
+        "sourceUuid": "some_id",
+        "type": "incoming",
+        "unidentifiedDeliveryReceived": true,
+        "schemaVersion": 10,
+        "body": "some_message",
+        "bodyRanges": [],
+        "contact": [],
+        "decrypted_at": 1688677423657,
+        "errors": [],
+        "flags": 0,
+        "hasAttachments": 0,
+        "isViewOnce": false,
+        "mentionsMe": false,
+        "preview": [],
+        "requiredProtocolVersion": 6,
+        "supportedVersionAtReceive": 7
+    }]
+```
+
 ## pysqlcipher3 library
 
 https://github.com/rigglemania/pysqlcipher3
