@@ -1,5 +1,3 @@
-"""Main script for sigexport."""
-
 import json
 import os
 import sys
@@ -73,12 +71,12 @@ def fetch_data(
         if groups:
             query = (f"SELECT m.json "
                      f"FROM messages m, conversations c, conversations c2 "
-                     f"WHERE m.type = 'incoming' and m.conversationId = c.id and m.sourceuuid = c2.uuid and c.Name in ({groups}) and m.sent_at > {ts} "
+                     f"WHERE m.type = 'incoming' and m.conversationId = c.id and m.sourceUuid = c2.uuid and c.Name in ({groups}) and m.sent_at > {ts} "
                      f"ORDER BY sent_at")
         else:
             query = (f"SELECT m.json "
                      f"FROM messages m, conversations c, conversations c2 "
-                     f"WHERE m.type = 'incoming' and m.conversationId = c.id and m.sourceuuid = c2.uuid and m.sent_at > {ts} "
+                     f"WHERE m.type = 'incoming' and m.conversationId = c.id and m.sourceUuid = c2.uuid and m.sent_at > {ts} "
                      f"ORDER BY sent_at")
 
         c.execute(query)
